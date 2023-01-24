@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Homepage.astro";
+import Header from "../components/Header.svelte";
+import Showcasing from "../components/Showcasing.svelte";
+import LinkHub from "../components/LinkHub.svelte";
+---
+
+<Layout title="Paragracia">
+  <main class="w-full m-0 p-0">
+    <Header client:idle />
+
+    <div class="main_container w-full m-0 p-0">
+      <Showcasing client:idle />
+      <LinkHub>
+        <a
+          href="https://play.google.com/store/apps/details?id=com.app.paragracia"
+          class="self-center h-24"
+        >
+          <img
+            src="/images/GooglePlay.png"
+            alt="Obténlo en GooglePlay."
+            class="h-full"
+          />
+        </a>
+      </LinkHub>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: 0px;
+    padding: 1.5rem;
+  }
+  @font-face {
+    font-family: "Uber Move";
+    src: url("UberMoveMedium.otf", "UberMoveBold.otf");
+  }
+
+  .main_container {
+    display: grid;
+    grid-template-columns: auto 30rem 20rem auto;
+    grid-template-rows: none;
+    grid-template-areas: ". sw lk .";
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 900px) {
+    .main_container {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: 100vh 100vh;
+      grid-template-areas:
+        "sw"
+        "lk";
+    }
+  }
+</style>
